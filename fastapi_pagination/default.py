@@ -44,16 +44,16 @@ class Page(BasePage[T], Generic[T]):
         total: Optional[int] = None,
         **kwargs: Any,
     ) -> Page[T]:
-        if not isinstance(params, Params):
-            raise ValueError("Page should be used with Params")
+        #if not isinstance(params, Params):
+        #    raise ValueError("Page should be used with Params")
 
-        pages = ceil(total / params.size) if total is not None else None
+        pages = ceil(total / params.Size) if total is not None else None
 
         return cls(
             total=total,
             items=items,
-            page=params.page,
-            size=params.size,
+            page=params.Page,
+            size=params.Size,
             pages=pages,
             **kwargs,
         )
